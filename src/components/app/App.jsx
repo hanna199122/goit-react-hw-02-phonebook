@@ -58,8 +58,6 @@ class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
-    // const totalContactsAcc = contacts.length;
-    // const visibleTodos = this.getVisibleContact();
 
     return (
       <div className={css['app-container']}>
@@ -75,6 +73,7 @@ class App extends Component {
         <ContactList
           contacts={[...contacts]}
           onDeleteContact={this.deleteContact}
+          filter={filter}
         />
       </div>
     );
@@ -86,4 +85,5 @@ export default App;
 App.propTypes = {
   contacts: PropTypes.string,
   filter: PropTypes.string,
+  onDeleteContact: PropTypes.func,
 };
