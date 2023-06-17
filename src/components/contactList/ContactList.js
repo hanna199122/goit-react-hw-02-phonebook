@@ -1,5 +1,5 @@
 import css from './ContactList.module.css';
-import { nanoid } from 'nanoid';
+import PropTypes from 'prop-types';
 
 const ContactList = props => {
   const { contacts, onDeleteContact } = props;
@@ -27,3 +27,8 @@ const ContactList = props => {
 };
 
 export default ContactList;
+
+ContactList.propTypes = {
+  contacts: PropTypes.array,
+  onDeleteContact: PropTypes.func,
+};

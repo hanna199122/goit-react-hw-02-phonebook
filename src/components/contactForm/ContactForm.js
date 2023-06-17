@@ -1,6 +1,6 @@
-import { checkPropTypes } from 'prop-types';
+import PropTypes from 'prop-types';
 import css from './ContactForm.module.css';
-import { Children, Component } from 'react';
+import { Component } from 'react';
 import { nanoid } from 'nanoid';
 
 class ContactForm extends Component {
@@ -68,3 +68,10 @@ class ContactForm extends Component {
 }
 
 export default ContactForm;
+
+ContactForm.propTypes = {
+  mame: PropTypes.string,
+  number: PropTypes.string,
+  onFormSubmitHandler: PropTypes.func,
+  onAddNewContact: PropTypes.func,
+};

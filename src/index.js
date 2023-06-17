@@ -5,7 +5,7 @@ import './index.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.Fragment>
+  <React.StrictMode>
     <App />
-  </React.Fragment>
+  </React.StrictMode>
 );

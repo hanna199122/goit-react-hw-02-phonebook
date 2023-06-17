@@ -40,15 +40,15 @@ class App extends Component {
     console.log(this.state.filter);
   };
 
-  getVisibleContact = () => {
-    const { contacts, filter } = this.state;
-    const normalizeFilter = filter.toLowerCase();
-    // console.log(filter);
+  // getVisibleContact = () => {
+  //   const { contacts, filter } = this.state;
+  //   const normalizeFilter = filter.toLowerCase();
+  //   // console.log(filter);
 
-    return contacts.filter(contact => {
-      contact.name.toLowerCase().includes(normalizeFilter);
-    });
-  };
+  //   return contacts.filter(contact => {
+  //     contact.name.toLowerCase().includes(normalizeFilter);
+  //   });
+  // };
 
   deleteContact = contactId => {
     this.setState(prevState => ({
@@ -58,9 +58,8 @@ class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
-    const totalContactsAcc = contacts.length;
-
-    const visibleTodos = this.getVisibleContact();
+    // const totalContactsAcc = contacts.length;
+    // const visibleTodos = this.getVisibleContact();
 
     return (
       <div className={css['app-container']}>
@@ -83,3 +82,8 @@ class App extends Component {
 }
 
 export default App;
+
+App.propTypes = {
+  contacts: PropTypes.string,
+  filter: PropTypes.string,
+};
