@@ -19,7 +19,7 @@ class App extends Component {
   contactId = nanoid();
 
   formSubmitHandler = data => {
-    console.log(data);
+    // console.log(data);
   };
 
   addNewContact = contact => {
@@ -28,10 +28,17 @@ class App extends Component {
       name: contact.name,
       number: contact.number,
     };
+    console.log(contact);
 
-    this.setState(prevState => ({
-      contacts: [contactsUser, ...prevState.contacts],
-    }));
+    const filtredNumber = this.state.contacts.find(
+      contact => contact.name === contactsUser.name
+    );
+
+    if (!filtredNumber) {
+      this.setState(prevState => ({
+        contacts: [contactsUser, ...prevState.contacts],
+      }));
+    } else alert(`${contactsUser.name} is already in contacts`);
   };
 
   changeFilter = e => {
@@ -39,16 +46,6 @@ class App extends Component {
 
     console.log(this.state.filter);
   };
-
-  // getVisibleContact = () => {
-  //   const { contacts, filter } = this.state;
-  //   const normalizeFilter = filter.toLowerCase();
-  //   // console.log(filter);
-
-  //   return contacts.filter(contact => {
-  //     contact.name.toLowerCase().includes(normalizeFilter);
-  //   });
-  // };
 
   deleteContact = contactId => {
     this.setState(prevState => ({
@@ -58,6 +55,7 @@ class App extends Component {
 
   render() {
     const { contacts, filter } = this.state;
+    console.log(this.state);
 
     return (
       <div className={css['app-container']}>
@@ -86,4 +84,6 @@ App.propTypes = {
   contacts: PropTypes.string,
   filter: PropTypes.string,
   onDeleteContact: PropTypes.func,
+  onFormSubmitHandler: PropTypes.func,
+  onChangeFilter: PropTypes.func,
 };

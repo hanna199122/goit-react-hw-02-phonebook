@@ -20,7 +20,7 @@ class ContactForm extends Component {
     evt.preventDefault();
 
     this.props.onFormSubmitHandler({ ...this.state });
-    console.log(this.state);
+    // console.log(this.state);
     this.reset();
 
     this.props.onAddNewContact(this.state);
@@ -42,7 +42,7 @@ class ContactForm extends Component {
           name="name"
           value={name}
           onChange={this.handlerChangeInput}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+          pattern="^[a-zA-Z0-9_.\-]+[\\\|\s]?[a-zA-Z0-9_.\-]+$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
           id={this.nameInputId}
@@ -55,7 +55,7 @@ class ContactForm extends Component {
           onChange={this.handlerChangeInput}
           type="tel"
           name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+          pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
           id={this.numberInputId}

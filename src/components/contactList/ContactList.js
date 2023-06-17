@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ContactList = props => {
   const { contacts, onDeleteContact, filter } = props;
-  console.log(filter);
+  // console.log(filter);
   const normalizeFilter = filter.toLowerCase();
   return (
     <ul className={css.contactList}>
